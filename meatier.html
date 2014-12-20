@@ -1,0 +1,23 @@
+<head>
+  <title>meatier</title>
+</head>
+
+<body>
+  <h1>Welcome to Meteor!</h1>
+
+  {{> hello}}
+  {{> playerHand}}
+  {{> deal}}
+</body>
+
+<template name="hello">
+  <button>Click Me</button>
+  <p>You've pressed the button {{counter}} times.</p>
+</template>
+
+<template name="playerHand">
+  your hand is: {{playerHand}}
+ </template>
+<template name="deal">
+	<button>Deal Hand</button>
+</template>
