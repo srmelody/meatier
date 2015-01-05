@@ -6,3 +6,7 @@
 meteor-platform
 autopublish
 insecure
+mquandalle:bower
+stevezhu:lodash
+
+sanjo:jasmine

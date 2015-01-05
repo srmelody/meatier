@@ -1,3 +1,4 @@
+
 if (Meteor.isClient) {
   // counter starts at 0
   Session.setDefault("counter", 0);
@@ -19,14 +20,20 @@ if (Meteor.isClient) {
     playerHand: function () {
       var hand = Session.get("playerHand");
       console.log("Trying to render hand: ", hand );
-      return hand;
+      var handString = _.map( hand, function( card) {
+        return card.rank + " of " + card.suit;
+      });
+      return handString;
     }
   });
 
   Template.deal.events({
     'click button': function () {
-      // Deal a new hand
-      Session.set('playerHand', [{suit: "H", val: 10}]);
+      // Deal a new hand.  My kingdom for coffeescript
+      var deck = Meteor.cards.pokerDeck();
+      var shuffled = Meteor.cards.shuffle( deck );
+      var hand = Meteor.cards.deal( shuffled );
+      Session.set('playerHand', hand);
       console.log("Setting player hand", Session.get('playerHand'));
     }
   });
@@ -36,5 +43,9 @@ if (Meteor.isServer) {
   Meteor.startup(function () {
     // code to run on server at startup
     console.log("Welcome to meatier!");
+    var deck = Meteor.cards.pokerDeck();
+    var as = new Meteor.cards.Card( "Ace", "Spades");
+    console.log("Pokwer deck", deck);
+    console.log("as", as);
   });
 }
