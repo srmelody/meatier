@@ -17,13 +17,27 @@ if (Meteor.isClient) {
   });
 
   Template.playerHand.helpers({
-    playerHand: function () {
+    playerHandString: function () {
       var hand = Session.get("playerHand");
       console.log("Trying to render hand: ", hand );
       var handString = _.map( hand, function( card) {
         return card.rank + " of " + card.suit;
       });
       return handString;
+    },
+    playerHand: function() {
+      var hand = Session.get("playerHand");
+      console.log("Player hand: ", hand );
+      var handString = _.map( hand, function( card) {
+        return JSON.stringify(card);
+      });
+      return hand;
+    },
+    playerHandJSON: function() {
+      var hand = Session.get("playerHand");
+      console.log("Player hand: ", hand );
+     
+      return JSON.stringify(hand);
     }
   });
 

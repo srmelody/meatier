@@ -1,14 +1,26 @@
 <head>
   <title>meatier</title>
+  <link rel="import" href="/elements/elements.html">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 </head>
 
 <body>
   <h1>Welcome to Meteor!</h1>
+<core-header-panel>
+<core-toolbar>
+<paper-tabs id="tabs" selected="all" self-end>
+
+<paper-tab name="something">something</paper-tab>
+
+</paper-tabs>
+</core-toolbar>
+</core-header-panel>
 
   {{> hello}}
-  {{> playerHand}}
-  {{> deal}}
+    {{> deal}}
   {{> shuffle}}
+  {{> playerHand}}
+
 </body>
 
 <template name="hello">
@@ -17,11 +29,24 @@
 </template>
 
 <template name="playerHand">
-  your hand is: {{playerHand}}
- </template>
+ <!-- <bacon-cardboard cards="{{playerHandJSON}}"></bacon-cardboard> -->
+your hand is: {{playerHandString}}
+<div class="container">
+  <div class="row">
+  
+  {{#each playerHand}}
+   <div class="col-xs-2">
+  	<bacon-card rank="{{this.rank}}" suit="{{this.suit}}"></bacon-card> 
+    </div>
+ {{/each}}
+ </div>
+ cardboard:
+ </div>
+</template>
 <template name="deal">
 	<button>Deal Hand</button>
 </template>
+
 
 <template name="shuffle">
 	<button>Shuffle Deck</button>
