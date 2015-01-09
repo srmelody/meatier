@@ -6,7 +6,7 @@
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Polymer! Meatier!</h1>
 <core-header-panel>
 <core-toolbar>
 <paper-tabs id="tabs" selected="all" self-end>
@@ -18,7 +18,7 @@
 </core-header-panel>
 
   {{> hello}}
-    {{> deal}}
+  {{> deal}}
   {{> shuffle}}
   {{> playerHand}}
 
@@ -37,11 +37,12 @@ your hand is: {{playerHandString}}
   
   {{#each playerHand}}
    <div class="col-xs-2">
-  	<bacon-card rank="{{this.rank}}" suit="{{this.suit}}" faceCard="{{this.faceCard}}"></bacon-card> 
+  	<bacon-card rank="{{this.rank}}" suit="{{this.suit}}"></bacon-card> 
     </div>
  {{/each}}
  </div>
  cardboard:
+ <bacon-cardboard cards="{{playerHandJSON}}"></bacon-cardboard>
  </div>
 </template>
 <template name="deal">

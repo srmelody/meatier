@@ -28,11 +28,8 @@ if (Meteor.isClient) {
     playerHand: function() {
       var hand = Session.get("playerHand");
       console.log("Player hand: ", hand );
-      var formattedHand = _.map( hand, function( card) {
-        var faceCard = isNaN(parseInt(card.rank));  
-        return {suit: card.suit, rank: card.rank, faceCard: faceCard};
-      });
-      return formattedHand;
+     
+      return hand;
     },
     playerHandJSON: function() {
       var hand = Session.get("playerHand");
