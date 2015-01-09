@@ -2,6 +2,7 @@
   <title>meatier</title>
   <link rel="import" href="/elements/elements.html">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -36,7 +37,7 @@ your hand is: {{playerHandString}}
   
   {{#each playerHand}}
    <div class="col-xs-2">
-  	<bacon-card rank="{{this.rank}}" suit="{{this.suit}}"></bacon-card> 
+  	<bacon-card rank="{{this.rank}}" suit="{{this.suit}}" faceCard="{{this.faceCard}}"></bacon-card> 
     </div>
  {{/each}}
  </div>
